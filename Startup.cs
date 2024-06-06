@@ -25,7 +25,7 @@ namespace TodoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-          SecretClientOptions options = new SecretClientOptions()
+            SecretClientOptions options = new SecretClientOptions()
             {
                 Retry =
                 {
@@ -35,7 +35,7 @@ namespace TodoApi
                     Mode = RetryMode.Exponential
                 }
             };
-            var client = new SecretClient(new Uri("https://mykeyvault89.vault.azure.net/"), new DefaultAzureCredential(),options);
+            var client = new SecretClient(new Uri("https://mykeyvault1988.vault.azure.net/"), new DefaultAzureCredential(),options);
             
             KeyVaultSecret secret = client.GetSecret("AppSecret");
             
@@ -45,7 +45,7 @@ namespace TodoApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-               // c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = secretValue });
             });
 
